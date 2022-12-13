@@ -2,8 +2,8 @@ package stock;
 
 public class Articles {
 	private int NbArticles=0;
-	private Articles[] magasin = new Articles[NbArticles];
-	private Articles[] comparaison = new Articles[NbArticles];
+	private Articles[] magasin;
+	private Articles[] comparaison;
 	private String nom;
 	private int quantite;
 	private float prix;
@@ -33,7 +33,15 @@ public class Articles {
 		return prixAchat;
 	}
 	
-	public boolean estDansMagasin(Articles tab[], int NbArticles) { //Stockage//
+	public void magasin(int NbArticles) {
+		magasin = new Articles[NbArticles];
+	}
+	
+	public void comparaison(int NbArticles) {
+		comparaison = new Articles[NbArticles];
+	}
+	
+	public boolean estDansMagasin(Articles articles,Articles tab[], int NbArticles) { //Stockage//
 		for (int i=0;i<NbArticles;i++) {
 			if (tab[i].getNom()==nom) {
 				return true;
@@ -43,7 +51,7 @@ public class Articles {
 	}
 	
 	public void remplir(Articles tab[], Articles articles, Articles tab2[]) {
-		if (estDansMagasin(tab, NbArticles)==false) {
+		if (estDansMagasin(articles ,tab, NbArticles)==false) {
 			tab[NbArticles]=articles;
 			NbArticles+=1;
 		}
@@ -64,7 +72,7 @@ public class Articles {
 			i+=1;
 		}
 		quantite += tab2[i].getQuantite();
-		tab[i]=articles;
+		tab2[i]=articles;
 		prevention(tab2);
 	}
 	
@@ -143,8 +151,7 @@ public class Articles {
 //		 return nomArticle;
 //	 }
 	 
-	 public static void main(String args[]) {
+	 public static void main(String[] args) {
 		 
 	 }
-	 
 }
