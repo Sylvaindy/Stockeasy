@@ -137,4 +137,14 @@ public class Articles {
 		 moinsRentable(tab, tab2);
 	 }
 	 
+	 public Articles creerArticles(String name, int combien, float prix, float prix_achat) {
+		 String nomArticle = name;
+		 Articles nomArticle = new Articles (name, combien, prix, prix_achat);
+		 return nomArticle;
+	 }
+	 
+	 public static void main(String args[]) {
+		 
+	 }
+	 
 }
